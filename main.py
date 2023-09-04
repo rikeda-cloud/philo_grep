@@ -1,10 +1,15 @@
+import os
 from parse_command_line import parse_command_line
 from create_result.get_result_from_file import get_result_from_file
 from create_result.exec_philo import exec_philo
 from grep.result_grep import ResultGrep
 
+LOG_DIR = 'log'
+
 
 def main():
+    if not os.path.isdir(LOG_DIR):
+        os.mkdir(LOG_DIR)
     args = parse_command_line()
     if args.philo:
         result = exec_philo(args.philo.strip('\'').split(' '))
