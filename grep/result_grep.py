@@ -1,5 +1,5 @@
 import re
-from philo import Philo
+from grep.philo import Philo
 
 
 class ResultGrep():
@@ -42,10 +42,24 @@ class ResultGrep():
             elif 'die' in message:
                 philo_list[philo_number].add_die(message)
         self.result = philo_list
-        print(f'  number  |taken|think|eat|sleep|die')
-        print(f'------------------------------------')
         for i, philo in enumerate(self.result):
-            print(f'philo[{i + 1:>3}]|{philo.taken[0]:^5}|{philo.think[0]:^5}|{philo.eat[0]:^3}|{philo.sleep[0]:^5}|{philo.die[0]:^3}')
+            print(f'--- philo[{i + 1:>3}] ---')
+            print("[taken]")
+            [print(message) for message in philo.taken[1]]
+            print("[thinking]")
+            [print(message) for message in philo.think[1]]
+            print("[eating]")
+            [print(message) for message in philo.eat[1]]
+            print("[sleeping]")
+            [print(message) for message in philo.sleep[1]]
+            print("[died]")
+            [print(message) for message in philo.die[1]]
+        print(f' --------------------------------------')
+        print(f' |  number  |taken|think|eat|sleep|die|')
+        print(f' --------------------------------------')
+        for i, philo in enumerate(self.result):
+            print(f' |philo[{i + 1:>3}]|{philo.taken[0]:^5}|{philo.think[0]:^5}|{philo.eat[0]:^3}|{philo.sleep[0]:^5}|{philo.die[0]:^3}|')
+        print(f' --------------------------------------')
 
     def grep_result(self, args):
         if args.number:

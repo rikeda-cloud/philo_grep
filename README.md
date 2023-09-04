@@ -1,6 +1,7 @@
 # 使い方
 ## コマンドラインを実行する
 ### python main.py -p "./philo[\_bonus] number die eat sleep [must_eat]"
+### logディレクトリに実行した結果が保存されます
 ## 実行結果が出力されたファイルから読み込む
 ### ./philo 42 42 42 42 42 > outfile
 ### python main.py -f outfile

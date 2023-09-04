@@ -1,13 +1,13 @@
-from get_result_from_file import get_result_from_file
 from parse_command_line import parse_command_line
-from exec_philo import exec_philo
-from result_grep import ResultGrep
+from create_result.get_result_from_file import get_result_from_file
+from create_result.exec_philo import exec_philo
+from grep.result_grep import ResultGrep
 
 
 def main():
     args = parse_command_line()
     if args.philo:
-        result = exec_philo(args.philo.split(' '))
+        result = exec_philo(args.philo.strip('\'').split(' '))
     elif args.file:
         result = get_result_from_file(args.file)
     else:
